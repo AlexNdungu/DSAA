@@ -76,10 +76,40 @@ tests.append({
 })
 
 
-    # 3. State the solution in plain english
-    #O(log N) - Binary Search : 
-        # 1. Find the most central index in nums
-        # 2. If the central most index is the matching target, stop the search else -
-        # 3. Depending on the comparison of the ascending numbers, deside if to move on with the right side or the left side nums
-        # 4. Repeat solution 2 and 3 until you find the target and display its index, else
-        # 5. Return -1 (Target not found)
+# 3. State the solution in plain english
+#O(log N) - Binary Search : 
+    # 1. Find the most central index in nums
+        # - Find the lowest and the highest index
+        # - Add the two indexs the divide (//) by 2 to find the most central index
+    # 2. If the central most index is the matching target, stop the search else -
+    # 3. Depending on the comparison of the ascending numbers, deside if to move on with the right side or the left side nums
+    # 4. Repeat solution 2 and 3 until you find the target and display its index, else
+    # 5. Return -1 (Target not found)
+
+# 4. Implement the solution and debug the code
+
+
+def find_target(high_index,low_index,target, nums):
+
+    #Loop through the array
+    while low_index <= high_index:
+
+        mid_index = (high_index + low_index) // 2
+
+        #Decide whether to go left or right
+        #Considering that nums in sorted in ascending order [1,3,5,6,8,9,10] target = 3
+
+        if target < nums[mid_index]:
+
+            high_index = mid_index - 1
+
+        elif target > nums[mid_index]:
+
+            low_index = mid_index + 1
+
+        elif target == nums[mid_index]:
+
+            return nums[mid_index]
+
+#Now we test unoptimized code
+find_target()            
