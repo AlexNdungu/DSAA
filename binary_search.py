@@ -3,7 +3,25 @@
 
 def locate_card(cards, query):
 
-    #Create 
+    #Create a variable to keep track of the index position
+    position = 0
+
+
+    #Set up a loop 
+    while True:
+
+        if cards[position] == query:
+
+            #The answer has been found 
+            return position
+            
+        position += 1
+
+        #Check if we have reached the end of the array
+        if position == len(cards):
+
+            #We return -1
+            return -1  
 
     #lets define test cases
 
