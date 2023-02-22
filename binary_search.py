@@ -6,9 +6,8 @@ def locate_card(cards, query):
     #Create a variable to keep track of the index position
     position = 0
 
-
     #Set up a loop 
-    while True:
+    while position < len(cards):
 
         if cards[position] == query:
 
@@ -17,29 +16,21 @@ def locate_card(cards, query):
             
         position += 1
 
-        #Check if we have reached the end of the array
-        if position == len(cards):
-
-            #We return -1
-            return -1  
+    return -1  
 
 
 
 #lets define test cases
 #Lets create a big test list
 tests = []
-
-#Respresent the test cases as dictionaries
-test = {
+#Append the tests
+tests.append({
     'input': {
         'cards':[13,11,10,7,4,3,1,0],
         'query': 7
     },
     'output': 3
-}
-
-#Append the tests
-tests.append(test)
+})
 
 #Query occurs in the middle
 #Append the tests
@@ -124,9 +115,23 @@ tests.append({
     'output': 2
 })
 
-#Lets test using the first test case
-result = locate_card(test['input']['cards'], test['input']['query'])
+print(tests)
 
-print(result == test['output'])
+#Lets test using the first test case
+#Respresent the test cases as dictionaries
+# test = {
+#     'input': {
+#         'cards':[13,11,10,7,4,3,1,0],
+#         'query': 7
+#     },
+#     'output': 3
+# }
+
+# result = locate_card(test['input']['cards'], test['input']['query'])
+
+# print(result == test['output'])
 
 #Now we test all our test cases
+from jovian.pythondsa import evaluate_test_case
+
+evaluate_test_case(locate_card, tests)
