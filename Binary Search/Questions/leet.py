@@ -89,43 +89,102 @@ tests.append({
 # 4. Implement the solution and debug the code
 
 
-def find_target(low_index,high_index,target, nums):
+# def find_target(low_index,high_index,target, nums):
 
-    #Loop through the array
-    while low_index < high_index:
+#     #Loop through the array
+#     while low_index < high_index:
+
+#         mid_index = (high_index + low_index) // 2
+
+#         #Decide whether to go left or right
+#         #Considering that nums in sorted in ascending order [1,3,5,6,8,9,10] target = 3
+
+#         if target < nums[mid_index]:
+
+#             high_index = mid_index - 1
+
+#         elif target > nums[mid_index]:
+
+#             low_index = mid_index + 1
+
+#         elif target == nums[mid_index]:
+
+#             #return nums[mid_index]
+#             return mid_index
+
+#     return -1
+
+
+# #Now we test unoptimized code
+
+# test = {
+#     'input': {
+#         'nums': [1,3,5,7,8,12],
+#         'target': 5
+#     },
+#     'output': 2
+# } 
+
+# print(find_target(0, len(test['input']['nums']) - 1,test['input']['target'],test['input']['nums'])     )
+
+
+#Now We optimize the code
+#We use 3 fuctions
+# 1. To identify the decision, whether left or right
+# 2. To carry out the actual decision
+# 2. To identify the index of the item in play
+
+def binary_position(low_index,high_index, condition):
+
+    while low_index <= high_index:
 
         mid_index = (high_index + low_index) // 2
 
-        #Decide whether to go left or right
-        #Considering that nums in sorted in ascending order [1,3,5,6,8,9,10] target = 3
+        result = condition(mid_index)
 
-        if target < nums[mid_index]:
+        if result == 'found':
+
+            return mid_index
+
+        elif result == 'left':
 
             high_index = mid_index - 1
 
-        elif target > nums[mid_index]:
+        else:
 
-            low_index = mid_index + 1
-
-        elif target == nums[mid_index]:
-
-            #return nums[mid_index]
-            return mid_index
+            low_index = mid_index + 1       
 
     return -1
 
 
-#Now we test unoptimized code
 
-test = {
-    'input': {
-        'nums': [1,3,5,7,8,12],
-        'target': 5
-    },
-    'output': 2
-} 
+def locate_index(target, nums):
 
-print(find_target(0, len(test['input']['nums']) - 1,test['input']['target'],test['input']['nums'])     )
+    def condition(mid_index):
+
+        if nums[mid_index] == target:
+
+            if mid_index > 0 and nums[mid_index - 1] == target:
+
+                return 'left'
+
+            else:
+
+                return 'found'    
+
+        elif nums[mid_index] < target:
+
+            return 'left'
+
+        else:
+
+            return 'right'
+
+    return binary_position(0, len(nums) - 1, condition)                    
 
 
-#Lets use 
+#Now we test
+#Now we test all our test cases
+from jovian.pythondsa import evaluate_test_cases
+
+evaluate_test_cases(locate_index, tests)    

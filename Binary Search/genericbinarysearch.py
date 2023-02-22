@@ -1,4 +1,4 @@
-#Binary search fuction that can be used everywhere
+ #Binary search fuction that can be used everywhere
 def binary_search(lo,hi, condition):
 
     while lo <= hi:
