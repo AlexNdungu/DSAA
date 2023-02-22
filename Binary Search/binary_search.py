@@ -117,6 +117,6 @@ tests.append({
 
 
 #Now we test all our test cases
-from jovian.pythondsa import evaluate_test_case
+from jovian.pythondsa import evaluate_test_cases
 
-evaluate_test_case(locate_card, tests)
+evaluate_test_cases(locate_card, tests)

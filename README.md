@@ -9,3 +9,6 @@ ___
 - Define an algorithim to effectively carry out the search
 - Write the code and debug any error
 - Big O notation
+
+___
+![Binary Search VS Linear Search](https://www.codesdope.com/staticroot/images/algorithm/binary_search.gif)
