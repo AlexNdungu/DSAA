@@ -89,10 +89,10 @@ tests.append({
 # 4. Implement the solution and debug the code
 
 
-def find_target(high_index,low_index,target, nums):
+def find_target(low_index,high_index,target, nums):
 
     #Loop through the array
-    while low_index <= high_index:
+    while low_index < high_index:
 
         mid_index = (high_index + low_index) // 2
 
@@ -109,7 +109,23 @@ def find_target(high_index,low_index,target, nums):
 
         elif target == nums[mid_index]:
 
-            return nums[mid_index]
+            #return nums[mid_index]
+            return mid_index
+
+    return -1
+
 
 #Now we test unoptimized code
-find_target()            
+
+test = {
+    'input': {
+        'nums': [1,3,5,7,8,12],
+        'target': 5
+    },
+    'output': 2
+} 
+
+print(find_target(0, len(test['input']['nums']) - 1,test['input']['target'],test['input']['nums'])     )
+
+
+#Lets use 
