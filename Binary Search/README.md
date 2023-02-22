@@ -8,3 +8,4 @@ ___
 - Define and outline test cases
 - Define an algorithim to effectively carry out the search
 - Write the code and debug any error
+- Big O notation

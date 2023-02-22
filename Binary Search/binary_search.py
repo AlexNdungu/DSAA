@@ -115,21 +115,6 @@ tests.append({
     'output': 2
 })
 
-print(tests)
-
-#Lets test using the first test case
-#Respresent the test cases as dictionaries
-# test = {
-#     'input': {
-#         'cards':[13,11,10,7,4,3,1,0],
-#         'query': 7
-#     },
-#     'output': 3
-# }
-
-# result = locate_card(test['input']['cards'], test['input']['query'])
-
-# print(result == test['output'])
 
 #Now we test all our test cases
 from jovian.pythondsa import evaluate_test_case
