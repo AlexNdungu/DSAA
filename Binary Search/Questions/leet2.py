@@ -104,4 +104,47 @@ tests.append({
         # Else if the number is positive, count the numer of elements between (nums[mid_index] - 0 = neg) and (high_index - nums[mid_index] = pos)
         # Else if the number is 0, move to the right and repeat 1
 
+
 # 4. Implement the solution and debug the code
+
+def binary_position(low_index,high_index,condition):
+
+    while low_index <= high_index:
+
+        # Here we find the mid_index
+        mid_index = (low_index + high_index) // 2
+
+        result = condition(mid_index)
+
+        if result == 'left':
+
+            high_index = mid_index - 1
+
+        elif result == 'right':
+
+            low_index = mid_index + 1
+
+        elif result == 'middle':
+
+            print('middle of neg and pos')
+
+    return 0
+
+
+def count_nums(nums):
+
+    def condition(mid_index):
+
+        if nums[mid_index] > 0:
+
+            if nums[mid_index - 1] > 0:
+
+                return 'left'
+
+            elif nums[mid_index - 1] < 0:
+
+                return 'middle'
+
+            elif nums[mid_index - 1] == 0:
+
+                return 'left'
