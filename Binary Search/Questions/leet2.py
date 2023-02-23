@@ -71,5 +71,37 @@ tests.append({
     'output': 6
 })
 
+# Case 7: When the firts element is 0
 
-#
+tests.append({
+    'input': {
+        'nums': [0,1,2,3,6,8]
+    },
+    'output': 5
+})
+
+# Case 8: When the last element is 0
+
+tests.append({
+    'input': {
+        'nums': [-4,-3,-1,0,0]
+    },
+    'output': 3
+})
+
+
+# 3. State the solution in plain english (algorithim)
+#O(log N) - Binary Search : 
+    # 1. Find the most central index in nums
+        # - Find the lowest (low_index) and the highest (high_index) index
+        # - Add the two indexs the divide (//) by 2 to find the most central index (mid_index)
+    # 2. If the value of nums[mid_index] is positive, check the left number - nums[mid_index - 1].
+        # If the nums[mid_index - 1] is positive - move to the left and repeat 1
+        # Else if nums[mid_index - 1] is negative - find its index and count the number of numbers from index 0 to the index [mid_index - 1]
+        # Else if nums[mid_index - 1] = 0, move to the left and repeat 1
+    # 3. Else if the value of nums[mid_index] is negative, check the number on the right - nums[mid_index + 1]
+        # If nums[mid_index + 1] is negative, move to the right and repeat 1
+        # Else if the number is positive, count the numer of elements between (nums[mid_index] - 0 = neg) and (high_index - nums[mid_index] = pos)
+        # Else if the number is 0, move to the right and repeat 1
+
+# 4. Implement the solution and debug the code
