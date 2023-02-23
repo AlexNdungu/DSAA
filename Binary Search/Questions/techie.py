@@ -44,4 +44,59 @@ tests.append({
     # 1. Find the most central index in nums
         # - Find the lowest and the highest index
         # - Add the two indexs the divide (//) by 2 to find the most central index
-    # 2. if nums[mid - 1] > nums[mid], 
+    # 2. if nums[mid - 1] > nums[mid], count from mid-1 to low
+    # 3. if num2[mid -1] < nums[mid], move right and repeat 1
+    # 4. if num2[mid + 1] > nums[mid], move right and repeat 1
+    # 5. if num2[mid + 1] < nums[mid], count from mid to low
+
+
+# 4. Implement the solution and debug the code
+
+def countRotate(nums):
+
+    low = 0;
+    high = len(nums) - 1
+
+    while low <= high:
+
+        mid = (high + low) // 2
+
+        print(mid)
+
+        #Check the if [8 ,9 ,10 , 2, 5, 6]
+        if nums[mid - 1] > nums[mid] and nums[mid + 1] > nums[mid]:
+             
+            return mid
+
+        if nums[mid -1] < nums[mid] and mid != high:
+
+            if nums[mid + 1] < nums[mid]:
+
+                low = mid + 1
+
+        if nums[mid + 1] > nums[mid]:
+
+            low = mid + 1
+
+        if nums[mid + 1] < nums[mid]:
+
+            return mid + 1            
+
+    return 0
+
+
+
+#Lets test
+
+test = {
+    'input' :{
+        'nums' : [2, 5, 6, 8, 9, 10]
+    },
+    'output': 3
+}
+
+
+print(countRotate(test['input']['nums']))
+
+
+#Correct answer
