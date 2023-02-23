@@ -124,9 +124,41 @@ def binary_position(low_index,high_index,condition):
 
             low_index = mid_index + 1
 
-        elif result == 'middle':
+        elif result == 'mid_positive':
 
-            print('middle of neg and pos')
+            #print('middle of neg and pos')
+
+            #Lets count the positive values first [-4,-3,-2,1,2,3,3]
+            pos = (high_index - mid_index) + 1
+
+            #Lets count the negative values
+            neg = ((mid_index - 1) - low_index) + 1
+
+            #Now check the biggest value
+
+            if pos > neg:
+
+                return pos
+
+            elif neg > pos:
+
+                return neg
+
+        elif result == 'mid_negative': #[-4,-3,-2,-1,1,2,3]
+
+            #Lets first count the negative values
+            neg = (mid_index - low_index) + 1
+
+            #lets count the positive numbers
+            pos = (high_index - (mid_index + 1)) + 1
+
+            if pos > neg:
+
+                return pos
+
+            elif neg > pos:
+
+                return neg
 
     return 0
 
@@ -143,8 +175,24 @@ def count_nums(nums):
 
             elif nums[mid_index - 1] < 0:
 
-                return 'middle'
+                return 'mid_positive' #One step to the left is a negative value
 
             elif nums[mid_index - 1] == 0:
 
                 return 'left'
+
+        elif nums[mid_index] < 0:
+
+            if nums[mid_index + 1] < 0:
+
+                return 'right'
+
+            elif nums[mid_index + 1] > 0:
+
+                return 'mid_negative' # One step to the right is a positive value
+
+            elif nums[mid_index + 1] == 0:
+
+                return 'right'  
+
+    binary_position(0, len(nums) - 1, condition)            
