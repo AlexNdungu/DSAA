@@ -107,92 +107,123 @@ tests.append({
 
 # 4. Implement the solution and debug the code
 
-def binary_position(low_index,high_index,condition):
+# def binary_position(low_index,high_index,condition):
 
-    while low_index <= high_index:
+#     while low_index <= high_index:
 
-        # Here we find the mid_index
-        mid_index = (low_index + high_index) // 2
+#         # Here we find the mid_index
+#         mid_index = (low_index + high_index) // 2
 
-        result = condition(mid_index)
+#         result = condition(mid_index)
 
-        if result == 'left':
+#         print(result)
 
-            high_index = mid_index - 1
+#         if result == 'left':
 
-        elif result == 'right':
+#             high_index = mid_index - 1
 
-            low_index = mid_index + 1
+#         elif result == 'right':
 
-        elif result == 'mid_positive':
+#             low_index = mid_index + 1
 
-            #print('middle of neg and pos')
+#         elif result == 'mid_positive':
 
-            #Lets count the positive values first [-4,-3,-2,1,2,3,3]
-            pos = (high_index - mid_index) + 1
+#             print('middle of neg and pos')
 
-            #Lets count the negative values
-            neg = ((mid_index - 1) - low_index) + 1
+#             #Lets count the positive values first [-4,-3,-2,1,2,3,3]
+#             pos = (high_index - mid_index) + 1
 
-            #Now check the biggest value
+#             #Lets count the negative values
+#             neg = ((mid_index - 1) - low_index) + 1
 
-            if pos > neg:
+#             #Now check the biggest value
 
-                return pos
+#             if pos > neg:
 
-            elif neg > pos:
+#                 return pos
 
-                return neg
+#             elif neg > pos:
 
-        elif result == 'mid_negative': #[-4,-3,-2,-1,1,2,3]
+#                 return neg
 
-            #Lets first count the negative values
-            neg = (mid_index - low_index) + 1
+#         elif result == 'mid_negative': #[-4,-3,-2,-1,1,2,3]
 
-            #lets count the positive numbers
-            pos = (high_index - (mid_index + 1)) + 1
+#             #Lets first count the negative values
+#             neg = (mid_index - low_index) + 1
 
-            if pos > neg:
+#             #lets count the positive numbers
+#             pos = (high_index - (mid_index + 1)) + 1
 
-                return pos
+#             if pos > neg:
 
-            elif neg > pos:
+#                 return pos
 
-                return neg
+#             elif neg > pos:
 
-    return 0
+#                 return neg
+
+#     return 0
 
 
-def count_nums(nums):
+# def count_nums(nums):
 
-    def condition(mid_index):
+#     def condition(mid_index):
 
-        if nums[mid_index] > 0:
+#         if nums[mid_index] > 0:
 
-            if nums[mid_index - 1] > 0:
+#             if nums[mid_index - 1] > 0:
 
-                return 'left'
+#                 return 'left'
 
-            elif nums[mid_index - 1] < 0:
+#             elif nums[mid_index - 1] < 0:
 
-                return 'mid_positive' #One step to the left is a negative value
+#                 return 'mid_positive' #One step to the left is a negative value
 
-            elif nums[mid_index - 1] == 0:
+#             elif nums[mid_index - 1] == 0:
 
-                return 'left'
+#                 return 'left'
 
-        elif nums[mid_index] < 0:
+#         elif nums[mid_index] < 0:
 
-            if nums[mid_index + 1] < 0:
+#             if nums[mid_index + 1] < 0:
 
-                return 'right'
+#                 return 'right'
 
-            elif nums[mid_index + 1] > 0:
+#             elif nums[mid_index + 1] > 0:
 
-                return 'mid_negative' # One step to the right is a positive value
+#                 return 'mid_negative' # One step to the right is a positive value
 
-            elif nums[mid_index + 1] == 0:
+#             elif nums[mid_index + 1] == 0:
 
-                return 'right'  
+#                 return 'right'  
 
-    binary_position(0, len(nums) - 1, condition)            
+#     binary_position(0, len(nums) - 1, condition)   
+
+
+# #Test one
+# test = {
+#     'input': {
+#         'nums': [-1,-3,-4,-5,-7,-8]
+#     },
+#     'output': 6
+# }
+
+# print(count_nums(test['input']['nums']))
+# #Now lets test t
+# #from jovian.pythondsa import evaluate_test_cases
+
+# #evaluate_test_cases(count_nums, tests)
+
+
+#Correction
+
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        positive=0
+        negative=0
+        for i in nums:
+            if i>0:
+                positive+=1
+            elif i<0:
+                negative+=1
+        return max(positive,negative)
