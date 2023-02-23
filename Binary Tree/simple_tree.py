@@ -15,3 +15,12 @@ node1 = TreeNode(4)
 node2 = TreeNode(5)
 
 print(node0.key)
+
+#Set the left and right node
+
+node0.left = node1
+node0.right = node2
+
+#Lets track the tree
+tree = node0
+
