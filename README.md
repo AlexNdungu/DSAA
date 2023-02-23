@@ -12,3 +12,7 @@ ___
 
 ___
 ![Binary Search VS Linear Search](https://www.codesdope.com/staticroot/images/algorithm/binary_search.gif)
+
+___
+
+## Leason Two - Binary Search Ree, Transversal And Balancing
