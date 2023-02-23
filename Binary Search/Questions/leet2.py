@@ -12,4 +12,64 @@
 
     # Output : (pos = 3, neg = 4) note: 0 is neither positive or negative = 4
 
-    
+# 2. Test Case Examples
+
+tests = []
+
+# Case 1: When negative and positive numbers are equal
+
+tests.append({
+    'input': {
+        'nums': [-2,-1,-1,1,2,3]
+    },
+    'output': 3
+})
+
+# Case 2: When there are more negative numbers than the positive
+
+tests.append({
+    'input': {
+        'nums': [-3,-2,-1,0,0,1,2]
+    },
+    'output': 3
+})
+
+# Case 3: When the positive numbers are more than the negative 
+
+tests.append({
+    'input': {
+        'nums': [-3,-2,-1,0,0,1,1,2,3]
+    },
+    'output': 4
+})
+
+# Case 4: When nums is made up of only 0s
+
+tests.append({
+    'input': {
+        'nums': [0,0,0,0]
+    },
+    'output': 0
+})
+
+# Case 5: When nums is madeup of only positive numbers
+
+tests.append({
+    'input': {
+        'nums': [1,3,4,5,7,8]
+    },
+    'output': 6
+})
+
+
+# Case 6: When nums is made up of only negative numbers
+
+tests.append({
+    'input': {
+        'nums': [-1,-3,-4,-5,-7,-8]
+    },
+    'output': 6
+})
+
+
+#
