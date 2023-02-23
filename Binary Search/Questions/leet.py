@@ -172,13 +172,13 @@ def locate_index(target, nums):
 
                 return 'found'    
 
-        elif nums[mid_index] < target:
+        elif nums[mid_index] < target: #[1,3,5,6,7]
 
-            return 'left'
+            return 'right'
 
         else:
 
-            return 'right'
+            return 'left'
 
     return binary_position(0, len(nums) - 1, condition)                    
 
