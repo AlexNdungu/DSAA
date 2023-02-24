@@ -16,18 +16,22 @@ class TreeNode:
 
 def createTree(nums):
 
-    # Find the middle
-    mid = len(nums) // 2
 
     if not nums:
         return None
-
+        
+    # Find the middle
+    mid = len(nums) // 2
     node = TreeNode(nums[mid])
-    node.left = TreeNode(nums[:mid])
-    node.right = TreeNode(nums[mid + 1:])
+    node.left = createTree(nums[:mid])
+    node.right = createTree(nums[mid + 1:])
     return node
 
 #Call the fuction
 print(createTree(the_array))  
+
+# Now lets display the tree
+
+
 
 
