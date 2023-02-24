@@ -117,6 +117,8 @@ test = {
 }
 
 
+
+
 print(countRotate(test['input']['nums']))
 
 
