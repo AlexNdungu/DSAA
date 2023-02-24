@@ -19,7 +19,11 @@ ___
 
 ### Write a Python program to create a Balanced Binary Search Tree (BST) using an array of elements where array elements are sorted in ascending order.
 
-### &rarr; array = [1, 2, 3, 4, 5, 6, 7]
+___
+
+#### &rarr; array = [1, 2, 3, 4, 5, 6, 7]
+
+### The Code &darr;
 
 ![Binary Search VS Linear Search](https://www.w3resource.com/w3r_images/python-binary-search-tree-image-exercise-1.svg)
 
