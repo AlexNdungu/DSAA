@@ -64,18 +64,144 @@ def findFirtsLast(nums, target):
 
     while low <= high:
 
+        #print(high)
+
         if first == None or last == None:
 
-            mid = (low + high) // 2
+            mid = (low + high) // 2 
+
+            print(mid)
 
             #Start Conditions
-            if nums[mid] == target and target > nums[mid - 1]:
+            if nums[mid] == target: 
+                
+                if target > nums[mid - 1]:
 
-                # Record First index
-                first = mid
+                    # Record First index
+                    first = mid
 
-            if nums[mid] == target and target < nums[mid + 1]:
+                    #print(first)
+                    #print(last)
 
-                # Record last element
-                last = mid
+                if target < nums[mid + 1]:
 
+                    # Record last element
+                    last = mid
+
+                    #print(last)
+                    #print(first)
+
+                if target >= nums[mid - 1] and target <= nums[mid + 1] and first != None: 
+
+                    low = mid + 1   
+
+                if target == nums[mid - 1] and target == nums[mid + 1] and last != None:
+
+                    high = mid - 1
+
+
+            if target < nums[mid]:
+
+                # Move Left
+                high = mid - 1
+
+            if target > nums[mid]:
+
+                # Move Right
+                low = mid + 1  
+
+        elif first != None and last != None:
+
+            #print('last')
+
+            #return print('The first occurrence of element {target} is located at index {first}'.format(target,first))#,'The Last occurrence of element {target} is located at index {last}'.format(target,last) 
+            # 
+            return last
+
+    return 'Element not found in the array'        
+
+#Lets test
+
+test = {
+    'input':{
+        'nums' : [2, 5, 5, 5, 5 , 6, 6, 8, 9, 9, 9],
+        'target': 5
+    },
+    'output': {
+        'first': 1,
+        'last': 3
+    }
+}
+
+#print(findFirtsLast(test['input']['nums'],test['input']['target']))
+
+# Finding first occurrence of the element
+
+# def findFirstOccur(nums, target):
+
+#     low = 0
+#     high = len(nums) - 1
+
+#     while low <= high:
+
+#         mid = (low + high) // 2
+
+#         #print(mid)
+
+#         #The logic [2, 5, 5, 5, 6, 6, 8, 9, 9, 9]
+#         if target == nums[mid]:
+            
+#             if target > nums[mid - 1]:
+
+#                 return mid
+
+#             if target == nums[mid + 1]:
+
+#                 high = mid - 1
+
+#         if target < nums[mid]:
+
+#             high = mid - 1
+
+#         if target > nums[mid]:  
+
+#             low = mid + 1 
+
+#     return 'none'   
+
+
+# print(findFirstOccur(test['input']['nums'],test['input']['target']))    
+
+def findLastOccure(nums, target):
+
+    low = 0
+    high = len(nums) - 1
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        print(mid)
+
+        #The logic [2, 5, 5, 5, 6, 6, 8, 9, 9, 9]
+        if target == nums[mid]:
+            
+            if target < nums[mid + 1]:
+
+                return mid
+
+            if target == nums[mid - 1] or target > nums[mid - 1]:
+
+                low = mid + 1
+
+        if target < nums[mid]:
+
+            high = mid - 1
+
+        if target > nums[mid]:  
+
+            low = mid + 1 
+
+    return 'none'   
+
+print(findLastOccure(test['input']['nums'],test['input']['target']))
