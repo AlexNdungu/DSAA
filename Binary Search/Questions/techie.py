@@ -63,26 +63,47 @@ def countRotate(nums):
 
         print(mid)
 
-        #Check the if [8 ,9 ,10 , 2, 5, 6]
-        if nums[mid - 1] > nums[mid] and nums[mid + 1] > nums[mid]:
+        # #Check the if [8 ,9 ,10 , 2, 5, 6]
+        # if nums[mid - 1] > nums[mid] and nums[mid + 1] > nums[mid]:
              
+        #     return mid
+
+        # if nums[mid -1] < nums[mid] and mid != high:
+
+        #     if nums[mid + 1] < nums[mid]:
+
+        #         low = mid + 1
+
+        # if nums[mid + 1] > nums[mid]:
+
+        #     low = mid + 1
+
+        # if nums[mid + 1] < nums[mid]:
+
+        #     return mid + 1            
+
+        # Correction
+        #if the list is already sorted[2, 5, 6, 8, 9, 10]
+        if nums[low] <= nums[high]:
+
+            return low
+
+        #If the mid element is less than nums[mid + 1] and nums[mid - 1]  (pivot), return mid
+        if nums[mid] <= nums[mid + 1] and nums[mid] <= nums[mid - 1]:
+
             return mid
 
-        if nums[mid -1] < nums[mid] and mid != high:
+        # if nums[mid..high] is sorted and mid is not the minimum number, then ignore the right and move left
+        elif nums[mid] <= nums[high]:
 
-            if nums[mid + 1] < nums[mid]:
+            high = mid - 1
 
-                low = mid + 1
-
-        if nums[mid + 1] > nums[mid]:
+        # If the nums[low..mid] are sorted, then mid canot be the pivot, ignore left and move right
+        elif nums[mid] >= nums[low]:
 
             low = mid + 1
 
-        if nums[mid + 1] < nums[mid]:
-
-            return mid + 1            
-
-    return 0
+    return -1
 
 
 
@@ -90,7 +111,7 @@ def countRotate(nums):
 
 test = {
     'input' :{
-        'nums' : [2, 5, 6, 8, 9, 10]
+        'nums' : [10,9,8,6,5,2]
     },
     'output': 3
 }
