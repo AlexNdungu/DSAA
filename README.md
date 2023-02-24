@@ -62,7 +62,12 @@ ___
 ### The Code &darr;
 
 ```
-# Create The Tree class
+# Write a Python program to create a Balanced Binary Search Tree (BST) 
+# using an array of elements where array elements are sorted in ascending order.
+
+the_array = [1, 2, 3, 4, 5, 6, 7]
+
+#Lets create the TreeNode Class
 
 class TreeNode:
 
@@ -75,9 +80,10 @@ class TreeNode:
 
 def createTree(nums):
 
+
     if not nums:
         return None
-        
+
     # Find the middle
     mid = len(nums) // 2
     node = TreeNode(nums[mid])
@@ -86,7 +92,19 @@ def createTree(nums):
     return node
 
 #Call the fuction
-print(createTree(the_array))  
+result = createTree(the_array)
+
+# Now lets display the tree
+
+def preOrder(node):
+
+    if not node:
+        return None
+    print(node.key)
+    preOrder(node.left)    
+    preOrder(node.right)
+
+preOrder(result)
 
 ```
 
