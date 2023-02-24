@@ -52,3 +52,30 @@ tests.append({
     # 7. if target == nums[mid] and target == nums[mid - 1] and target == nums[mid + 1] and last != Null, move left - high = mid - 1
 
 # 4. Implement the solution and debug the code
+
+def findFirtsLast(nums, target):
+
+    # The index of first and last position of element
+    first = None
+    last = None
+
+    low = 0
+    high = len(nums) - 1
+
+    while low <= high:
+
+        if first == None or last == None:
+
+            mid = (low + high) // 2
+
+            #Start Conditions
+            if nums[mid] == target and target > nums[mid - 1]:
+
+                # Record First index
+                first = mid
+
+            if nums[mid] == target and target < nums[mid + 1]:
+
+                # Record last element
+                last = mid
+
