@@ -110,3 +110,12 @@ preOrder(result)
 
 ![Binary Search VS Linear Search](https://www.w3resource.com/w3r_images/python-binary-search-tree-image-exercise-1.svg)
 
+## Traversing A Tree
+
+&rarr; Process of visiting each tree node only once.
+
+- inorder
+- preorder
+- postorder
+
+![Binary Search VS Linear Search](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Preorder-from-Inorder-and-Postorder-traversals.jpg)
