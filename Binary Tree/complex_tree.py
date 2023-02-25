@@ -33,3 +33,17 @@ def parse_tuple(data):
 tree = parse_tuple(tree_tuple) 
 
 print(tree.left.key)
+
+
+#Import traverse 
+from travers import traverse_in_order
+
+print(traverse_in_order(tree))
+
+#Now lets find the heigh of the tree
+from height import tree_height, tree_size
+
+print(tree_height(tree))
+
+# Find the number of elements
+print(tree_size(tree))
