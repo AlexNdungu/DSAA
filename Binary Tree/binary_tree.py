@@ -93,4 +93,11 @@ from keyValue import BSTNode, insert
 
 # Lest use the insert fuction
 
+#Since there is no existing tree, use None for the variable node
 tree = insert(None, joyce.username, joyce)
+
+# insert the rest
+insert(tree, alex.username, alex)
+insert(tree, meta.username,meta)
+insert(tree, ndungu.username, ndungu)
+insert(tree, muniu.username, muniu)
