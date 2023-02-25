@@ -79,7 +79,7 @@ database.list_all()
 
 
 #Lets create key value pair tree using the users data
-from keyValue import BSTNode, insert, find, update
+from keyValue import BSTNode, insert, find, update, all_list, is_balanced
 
 # tree = BSTNode(joyce.username, joyce)
 
@@ -114,3 +114,10 @@ update(tree, 'theAlex', User('theAlex','new alex','newalex@gmail.com'))
 find_value = find(tree, 'theAlex')
 
 print(find_value.value.email)
+
+#Now lets dispaly all the nodes
+
+print(all_list(tree))
+
+#Is the tree balanced
+print(is_balanced(tree))
