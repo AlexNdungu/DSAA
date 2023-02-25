@@ -47,3 +47,8 @@ print(tree_height(tree))
 
 # Find the number of elements
 print(tree_size(tree))
+
+# check if the tree is a BST
+from ifBST import is_bst
+
+print(is_bst(tree))
