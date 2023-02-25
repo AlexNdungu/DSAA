@@ -66,13 +66,31 @@ database.insert(ndungu)
 
 #Find a user
 user = database.find('theAlex')
-print(user.name)
+#print(user.name)
 
 #Now we update data
 database.update(User(username='theAlex', name='Nie Meta', email='alexM@gmail.com'))
 
 user = database.find('theAlex')
-print(user.name)
+#print(user.name)
 
 #List
 database.list_all()
+
+
+#Lets create key value pair tree using the users data
+from keyValue import BSTNode, insert
+
+# tree = BSTNode(joyce.username, joyce)
+
+# print(tree.key, tree.value)
+
+# # Lets go to the left side
+# tree.left = BSTNode(alex.username, alex)
+# tree.left.parent = tree
+# tree.right = BSTNode(muniu.username, muniu)
+# tree.right.parent = tree
+
+# Lest use the insert fuction
+
+tree = insert(None, joyce.username, joyce)
