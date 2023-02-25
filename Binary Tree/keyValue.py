@@ -21,4 +21,26 @@ def insert(node, key, value):
     elif key > node.key:
         node.right = insert(node.right, key, value)
         node.right.parent = node
-    return node            
+    return node
+
+
+#Now let us find the value associated with a given key            
+
+def find(node, key):
+
+    if node is None:
+        return None
+    if key == node.key:
+        return node
+    if key < node.key:
+        return find(node.left, key)
+    if key > node.key:
+        return find(node.right, key)
+    
+# Now we update the values
+
+def update(node, key, value):
+
+    target = find(node, key)
+    if target is not None:
+        target.value = value    

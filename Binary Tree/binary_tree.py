@@ -79,7 +79,7 @@ database.list_all()
 
 
 #Lets create key value pair tree using the users data
-from keyValue import BSTNode, insert
+from keyValue import BSTNode, insert, find, update
 
 # tree = BSTNode(joyce.username, joyce)
 
@@ -101,3 +101,16 @@ insert(tree, alex.username, alex)
 insert(tree, meta.username,meta)
 insert(tree, ndungu.username, ndungu)
 insert(tree, muniu.username, muniu)
+
+#Lets find elements
+find_value = find(tree, 'theAlex')
+
+print(find_value.value.email)
+
+#Now lets update the key
+
+update(tree, 'theAlex', User('theAlex','new alex','newalex@gmail.com'))
+
+find_value = find(tree, 'theAlex')
+
+print(find_value.value.email)
