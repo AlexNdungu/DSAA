@@ -10,7 +10,7 @@ class TreeNode:
 
 # The array that we wll create the tree with
 
-theArray = [1, 2, 3, 4, 5, 6]
+theArray = [4,2,7,1,3]
 
 # Now fill the tree with values
 
@@ -38,7 +38,7 @@ def createTree(collection):
 # Call the fuction
 tree = createTree(theArray)
 
-#print(tree)
+#print(tree.key)
 
 
 #Lets perform a inorder transversal
@@ -54,8 +54,12 @@ print(postorderTransversal(tree))
 
 # Find the height of the tree
 
-from maximum import maxRoute
+from maxmin import maxRoute,minRoute
 
-print(maxRoute(tree))
+print(minRoute(tree))
 
+# Lets find a value
+from searchTree import findVal
+
+print(findVal(tree,3))
 
