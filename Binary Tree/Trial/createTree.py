@@ -51,3 +51,11 @@ print(preorderTransversal(tree))
 
 # postorder transversal
 print(postorderTransversal(tree))
+
+# Find the height of the tree
+
+from maximum import maxRoute
+
+print(maxRoute(tree))
+
+
