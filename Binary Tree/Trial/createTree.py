@@ -54,7 +54,7 @@ print(postorderTransversal(tree))
 
 # Find the height of the tree
 
-from maxmin import maxRoute,minRoute
+from maxmin import maxRoute,minRoute,maxmin
 
 print(minRoute(tree))
 
@@ -63,3 +63,12 @@ from searchTree import findVal
 
 print(findVal(tree,3))
 
+# tree to array
+
+print(maxmin(tree)[-1])
+
+# Test if the tree is balanced
+
+from balance import isBalanced
+
+print(isBalanced(tree))

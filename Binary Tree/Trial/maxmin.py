@@ -24,4 +24,10 @@ def minRoute(node):
     return 1 + min(minRoute(node.left),minRoute(node.right))
 
 
-#Get the max and inimum value in 
+#Get the max and min value in tree
+
+def maxmin(node):
+
+    if node is None:
+        return []
+    return maxmin(node.left) + [node.key] + maxmin(node.right)    
