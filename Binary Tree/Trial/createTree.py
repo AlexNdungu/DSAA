@@ -28,7 +28,7 @@ def createTree(collection):
 
     mid = (low + high) // 2
 
-    print(mid)
+    #print(mid)
 
     node = TreeNode(collection[mid])
     node.left = createTree(collection[:mid])
@@ -36,4 +36,18 @@ def createTree(collection):
     return node
 
 # Call the fuction
-print(createTree(theArray))
+tree = createTree(theArray)
+
+#print(tree)
+
+
+#Lets perform a inorder transversal
+from transvarse import inorderTransversal,preorderTransversal, postorderTransversal
+
+print(inorderTransversal(tree))
+
+# Preorder transversal
+print(preorderTransversal(tree))
+
+# postorder transversal
+print(postorderTransversal(tree))
