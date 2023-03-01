@@ -134,4 +134,3 @@ from jovian.pythondsa import evaluate_test_cases,evaluate_test_case
 
 evaluate_test_cases(mergeSort, tests)
 
-#mergeSort(test0['input']['nums'])
