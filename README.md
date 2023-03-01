@@ -230,3 +230,30 @@ def bubbleSort(nums):
 ```
 
 #### Time Complexity 0(n^2)
+
+
+### Insertion sort &rarr; sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
+
+![Insertion Sort](https://cdn-images-1.medium.com/max/1600/1*qc-KD7DII1K097jnvOWqsg.gif)
+
+```
+
+def insertion_sort(nums):
+
+    nums = list(nums)
+
+    for i in range(len(nums)):
+
+        cur = nums.pop(i)
+
+        j = i -1
+
+        while j >= 0 and nums[j] > cur:
+
+            j -= 1
+
+        nums.insert(j+1,cur)
+
+    return nums
+    
+```
