@@ -80,5 +80,17 @@ tests = [test0,test1,test2,test3,test4,test5,test6]
 
 
 
-def sort(nums):
-    pass
+def bubbleSort(nums):
+    
+    # Create a copy of the list for the purpose of the test cases
+    nums = list(nums)
+
+    for _ in range(len(nums - 1)):
+
+        for i in range(len(nums - 1)):
+
+            if nums[i] > nums[i + 1]:
+
+                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+
+    return nums                                                                                                                                                                                                       
