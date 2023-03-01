@@ -225,12 +225,11 @@ def bubbleSort(nums):
 
                 nums[i], nums[i + 1] = nums[i + 1], nums[i]
 
-    return nums   
+    return nums  
+
+# Time Complexity 0(n^2)     
 
 ```
-
-#### Time Complexity 0(n^2)
-
 
 ### Insertion sort &rarr; sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
 
@@ -255,5 +254,13 @@ def insertion_sort(nums):
         nums.insert(j+1,cur)
 
     return nums
-    
+
 ```
+
+### Divide and Conquer &rarr; This technique can be divided into the following three parts:
+- **Divide :** This involves dividing the problem into smaller sub-problems.
+- **Conquer :** Solve sub-problems by calling recursively until solved.
+- **Combine :** Combine the sub-problems to get the final solution of the whole problem.
+
+![Divide and Conquer](https://cdn-images-1.medium.com/max/1080/1*LB23hmktYU3bI9OzINsBSQ.png)
+
