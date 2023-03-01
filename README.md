@@ -317,3 +317,5 @@ def merge(left_list,right_list):
     return complete_sorting + left_list_tail + right_list_tail    
 
 ```
+
+- **Quick Sort** &rarr; The algorithm picks a pivot element and rearranges the array elements so that all elements smaller than the picked pivot element move to the left side of the pivot, and all greater elements move to the right side. Finally, the algorithm recursively sorts the subarrays on the left and right of the pivot element.
