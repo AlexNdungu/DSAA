@@ -202,3 +202,7 @@ def is_balanced(node):
 
 ## Leason Three Merge Sort, QuickSort and Divide-n-Conquer
 
+### Bubble sort &rarr; Repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.
+
+
+![Bubble Sort](https://www.michaelfxu.com/assets/gifs/sorts/bubble-sort.gif)
