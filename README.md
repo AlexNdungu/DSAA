@@ -198,3 +198,7 @@ def is_balanced(node):
     return balanced, height
 
 ```
+
+
+## Leason Three Merge Sort, QuickSort and Divide-n-Conquer
+
