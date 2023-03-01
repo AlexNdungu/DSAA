@@ -228,3 +228,5 @@ def bubbleSort(nums):
     return nums   
 
 ```
+
+#### Time Complexity 0(n^2)

@@ -1,4 +1,4 @@
-# Write a fuction to sort nums in ascending order
+# Same as arranging card
 
 #Test cases
 #Test case 0:  List of numbers in random order
@@ -79,29 +79,29 @@ test6 = {
 tests = [test0,test1,test2,test3,test4,test5,test6]
 
 
+def insertion_sort(nums):
 
-def bubbleSort(nums):
-    
-    # Create a copy of the list for the purpose of the test cases
     nums = list(nums)
 
-    for _ in range(len(nums) - 1):
+    for i in range(len(nums)):
 
-        for i in range(len(nums) - 1):
+        cur = nums.pop(i)
 
-            if nums[i] > nums[i + 1]:
+        j = i -1
 
-                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+        while j >= 0 and nums[j] > cur:
 
-    return nums
+            j -= 1
+
+        nums.insert(j+1,cur)
+
+    return nums        
 
 
 #Now lets test
 
 from jovian.pythondsa import evaluate_test_cases
 
-evaluate_test_cases(bubbleSort, tests)
+evaluate_test_cases(insertion_sort, tests)
 
 #bubbleSort(test0['input']['nums'])
-
-
