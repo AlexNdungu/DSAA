@@ -206,3 +206,25 @@ def is_balanced(node):
 
 
 ![Bubble Sort](https://www.michaelfxu.com/assets/gifs/sorts/bubble-sort.gif)
+
+### Bubble Sort Algorithim Code
+
+```
+# n-1 since the loop should not get to the last element
+
+def bubbleSort(nums):
+    
+    # Create a copy of the list for the purpose of the test cases
+    nums = list(nums)
+
+    for _ in range(len(nums - 1)):
+
+        for i in range(len(nums - 1)):
+
+            if nums[i] > nums[i + 1]:
+
+                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+
+    return nums   
+
+```
