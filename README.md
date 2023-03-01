@@ -319,3 +319,55 @@ def merge(left_list,right_list):
 ```
 
 - **Quick Sort** &rarr; The algorithm picks a pivot element and rearranges the array elements so that all elements smaller than the picked pivot element move to the left side of the pivot, and all greater elements move to the right side. Finally, the algorithm recursively sorts the subarrays on the left and right of the pivot element.
+
+```
+
+# Quick sort algorithim
+
+def quickSort(nums, start = 0, end=None):
+    
+    if end is None:
+
+        nums = list(nums)
+        end = len(nums) - 1
+
+    if start < end:
+
+        pivot = partition(nums,start,end)
+        quickSort(nums, start, pivot-1)
+        quickSort(nums, pivot+1, end)
+
+    return nums
+
+
+def partition(nums,start=0, end=None):
+
+    if end is None:
+        end = len(nums) - 1
+    
+    #Initialize the left and the
+    l,r = start, end-1
+
+    while r > l:
+
+        if nums[l] <= nums[end]:
+
+            l += 1
+
+        elif nums[r] > nums[end]:
+
+            r -= 1
+
+        else:
+
+            nums[l],nums[r] = nums[r],nums[l]
+
+    if nums[l] > nums[end]:
+        nums[l], nums[end] = nums[end], nums[l]
+        return l
+    else:
+        return end
+
+
+
+```
