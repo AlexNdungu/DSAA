@@ -7,7 +7,7 @@ test0 = {
     'input':{
         'nums': [4,2,6,3,4,6,2,1]
     },
-    'output': [1,2,3,3,4,4,6,6]
+    'output': [1,2,2,3,4,4,6,6]
 }
 
 #Test case 1:  List of numbers in random order
@@ -16,7 +16,7 @@ test1 = {
     'input':{
         'nums': [5,2,6,1,23,7,-12,12,-234,0]
     },
-    'output': [-243,-12,0,1,2,5,6,7,12,23]
+    'output': [-234,-12,0,1,2,5,6,7,12,23]
 }
 
 
@@ -85,12 +85,21 @@ def bubbleSort(nums):
     # Create a copy of the list for the purpose of the test cases
     nums = list(nums)
 
-    for _ in range(len(nums - 1)):
+    for _ in range(len(nums) - 1):
 
-        for i in range(len(nums - 1)):
+        for i in range(len(nums) - 1):
 
             if nums[i] > nums[i + 1]:
 
                 nums[i], nums[i + 1] = nums[i + 1], nums[i]
 
-    return nums                                                                                                                                                                                                       
+    return nums
+
+
+#Now lets test
+
+from jovian.pythondsa import evaluate_test_cases
+
+evaluate_test_cases(bubbleSort, tests)
+
+#bubbleSort(test0['input']['nums'])
