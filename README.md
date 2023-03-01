@@ -264,3 +264,5 @@ def insertion_sort(nums):
 
 ![Divide and Conquer](https://cdn-images-1.medium.com/max/1080/1*LB23hmktYU3bI9OzINsBSQ.png)
 
+- **Merge Sort** &rarr; The MergeSort function repeatedly divides the array into two halves until we reach a stage where we try to perform MergeSort on a subarray of size 1. After that, the merge function comes into play and combines the sorted arrays into larger arrays until the whole array is merged.
+
