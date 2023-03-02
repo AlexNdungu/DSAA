@@ -368,6 +368,12 @@ def partition(nums,start=0, end=None):
     else:
         return end
 
-
-
 ```
+
+## Leason Four Recursions and Dynamic Programming
+
+### Longest Common Sequence 
+
+**Sequence** &rarr; Is a group of items with a deterministic ordering. Lists, tuples and ranges are some common sequences types in python.
+
+**SubSequence** &rarr; is a sequence obtained by deleting zero or more elements from another sequence.
