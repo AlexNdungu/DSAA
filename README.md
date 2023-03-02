@@ -377,3 +377,33 @@ def partition(nums,start=0, end=None):
 **Sequence** &rarr; Is a group of items with a deterministic ordering. Lists, tuples and ranges are some common sequences types in python.
 
 **SubSequence** &rarr; is a sequence obtained by deleting zero or more elements from another sequence.
+
+#### Recursive Solution
+
+```
+
+# We are given two sequences and we need to find the length of the longest common subsequence between them.
+
+#Inputs
+# seq1 - serendipitous
+# seq2 - precipitation
+
+#Output
+#lcs length = 7
+
+def lcs_recursive(seq1,seq2, idx1=0, idx2=0):
+    
+    if idx1 == len(seq1) or idx2 == len(seq2):
+
+        return 0
+    
+    elif seq1[idx1] == seq2[idx2]:
+
+        return 1 + lcs_recursive(seq1, seq2, idx1 + 1, idx2 + 1)
+    
+    else:
+        option1 = lcs_recursive(seq1, seq2, idx1+1, idx2)
+        option2 = lcs_recursive(seq1, seq2, idx1, idx2 + 1)
+        return max(option1,option2)
+
+```
