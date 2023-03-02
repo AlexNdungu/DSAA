@@ -26,8 +26,8 @@ def lcs_recursive(seq1,seq2, idx1=0, idx2=0):
 # General Case(strings)
 t0 = {
     'input': {
-        'seq': 'serendipitous',
-        'seq': 'precipitation'
+        'seq1': 'serendipitous',
+        'seq2': 'precipitation'
     },
     'output': 7
 }
@@ -35,8 +35,8 @@ t0 = {
 #General case (list)
 t1 = {
     'input': {
-        'seq': [1,3,5,6,7,2,5,2,3],
-        'seq': [6,2,4,7,1,5,6,2,3]
+        'seq1': [1,3,5,6,7,2,5,2,3],
+        'seq2': [6,2,4,7,1,5,6,2,3]
     },
     'output': 5
 }
@@ -44,8 +44,8 @@ t1 = {
 #No Common Sequence
 t2 = {
     'input': {
-        'seq': 'asdfwevad',
-        'seq': 'opkpoiklklj'
+        'seq1': 'asdfwevad',
+        'seq2': 'opkpoiklklj'
     },
     'output': 0
 }
@@ -53,8 +53,8 @@ t2 = {
 #One sequence of the other
 t3 = {
     'input': {
-        'seq': 'dence',
-        'seq': 'condenced'
+        'seq1': 'dence',
+        'seq2': 'condenced'
     },
     'output': 5
 }
@@ -62,8 +62,8 @@ t3 = {
 #One sequence is empty
 t4 = {
     'input': {
-        'seq': '',
-        'seq': 'opkpoiklklj'
+        'seq1': '',
+        'seq2': 'opkpoiklklj'
     },
     'output': 0
 }
@@ -71,13 +71,56 @@ t4 = {
 #both sequences are empty
 t5 = {
     'input': {
-        'seq': '',
-        'seq': ''
+        'seq1': '',
+        'seq2': ''
     },
-    'output': 7
+    'output': 0
 }
 
 
 #The test cases
 tests = [t0,t1,t2,t3,t4,t5]
 
+# lets test one outcome first
+
+#print(lcs_recursive(t0['input']['seq1'],t0['input']['seq2']))
+
+from jovian.pythondsa import evaluate_test_cases
+
+#evaluate_test_cases(lcs_recursive,tests)
+
+# Now we optimize this by Memorization
+
+def lcs_memo(seq1,seq2):
+
+    memo = {}
+    def recurse(idx1=0,idx2=0):
+
+        key = (idx1, idx2)
+
+        if key in memo:
+
+            return memo[key]
+        
+        elif idx1 == len(seq1) or idx2 == len(seq2):
+
+            memo[key] = 0
+
+        elif seq1[idx1] == seq2[idx2]:
+
+            memo[key] = 1 + recurse(idx1+1, idx2+1)
+
+        else:
+
+            memo[key] = max(recurse(idx1+1, idx2), recurse(idx1, idx2+1))        
+
+        return memo[key]
+
+    return recurse(0,0)    
+
+
+# lets test one outcome first
+
+#print(lcs_recursive(t0['input']['seq1'],t0['input']['seq2']))
+
+evaluate_test_cases(lcs_memo,tests)
